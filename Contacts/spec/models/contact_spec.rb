@@ -22,13 +22,13 @@ RSpec.describe Contact, type: :model do
     end
 
     it "calculates correctly in between years" do
-      @contact.date_of_birth = Date.today - 400.days
+      @contact.date_of_birth = Date.today - 366.days
       expect(@contact.age).to eq(1)
     end
 
     it "handles dates of birth in the future" do
       @contact.date_of_birth = Date.today + 1.year
-      expect(unlikely_contact.age).to eq(0)
+      expect(@contact.age).to eq(0)
     end
 
   end
