@@ -1,2 +1,9 @@
-<h1>Contact#index</h1>
+<h1>Contact list</h1>
 <p>Find me in app/views/contact/index.html.erb</p>
+<p></p>
+
+<ul>
+<% @contact_list.each do |contact| %>
+  <li><%= contact.first_name %> <%= contact.last_name %></li>
+<% end %>
+</ul>
