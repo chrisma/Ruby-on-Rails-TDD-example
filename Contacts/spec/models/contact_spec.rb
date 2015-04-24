@@ -2,7 +2,18 @@ require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
   before(:each) do
-    @contact = Contact.new(first_name:'Adam', date_of_birth:Date.today)
+    @contact = Contact.new(date_of_birth:Date.today)
+  end
+
+  context "writing and reading to the database" do
+    it "saves without errors" do
+      expect {@contact.save}.to change{Contact.count}.from(0).to(1)
+    end
+
+    it "is retrieved correctly" do
+      @contact.save
+      expect(Contact.find @contact.id).to eq(@contact) 
+    end
   end
 
   context "age calculation" do
