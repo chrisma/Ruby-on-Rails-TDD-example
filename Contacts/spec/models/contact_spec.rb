@@ -17,6 +17,11 @@ RSpec.describe Contact, type: :model do
   end
 
   context "age calculation" do
+    it "returns nil if date_of_birth is not set" do
+      @contact.date_of_birth = nil
+      expect(@contact.age).to eq(nil)
+    end
+    
     it "calculates the correct age for newborns" do
       expect(@contact.age).to eq(0)
     end
