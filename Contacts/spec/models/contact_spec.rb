@@ -5,14 +5,9 @@ RSpec.describe Contact, type: :model do
     @contact = Contact.new(date_of_birth:Date.today)
   end
 
-  context "writing and reading to the database" do
+  context "writing to the database" do
     it "saves without errors" do
       expect {@contact.save}.to change{Contact.count}.from(0).to(1)
-    end
-
-    it "is retrieved correctly" do
-      @contact.save
-      expect(Contact.find @contact.id).to eq(@contact) 
     end
   end
 
