@@ -24,4 +24,7 @@ describe "the contact list", :type => :feature do
     expect(page.all("ul li").size).to eq @contacts.size
   end
 
+  it "has a correct title" do
+    expect(page).to have_title 'Contacts'
+  end
 end
