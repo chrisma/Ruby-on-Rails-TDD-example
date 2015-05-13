@@ -15,7 +15,7 @@ RSpec.describe "contact/index.html.erb", type: :view do
     end
 
     it "displays a heading" do
-      expect(rendered).to match "<h1>Contact list</h1>"
+      expect(rendered).to match "Contact list"
     end
   end
 end
