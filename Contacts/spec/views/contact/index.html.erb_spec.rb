@@ -5,8 +5,10 @@ RSpec.describe "contact/index.html.erb", type: :view do
     before(:each) do
       @adam = Contact.create!(first_name: "Adam")
       @eve = Contact.create!(first_name: "Eve")
+      # assign a variable in the view
       assign(:contact_list, [@adam, @eve])
-      render # populates rendered
+      # renders the view, populates 'rendered'
+      render
     end
 
     it "displays all first names of contacts" do
@@ -19,6 +21,7 @@ RSpec.describe "contact/index.html.erb", type: :view do
     end
 
     it "shows the correct heading" do
+      # match takes a regexp
       expect(rendered).to match /<h1>contact.*<\/h1>/i
     end
 
