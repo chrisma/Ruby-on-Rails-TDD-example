@@ -10,12 +10,20 @@ RSpec.describe "contact/index.html.erb", type: :view do
     end
 
     it "displays all first names of contacts" do
-      expect(rendered).to match @adam.first_name
-      expect(rendered).to match @eve.first_name
+      expect(rendered).to include @adam.first_name
+      expect(rendered).to include @eve.first_name
     end
 
-    it "displays a heading" do
-      expect(rendered).to match "Contact list"
+    it "has a single top-level heading" do
+      expect(rendered).to have_xpath("//h1", :count => 1)
+    end
+
+    it "shows the correct heading" do
+      expect(rendered).to match /<h1>contact.*<\/h1>/i
+    end
+
+    it "does not render the 'empty' message" do
+      expect(rendered).not_to match /no contacts/i
     end
   end
 end

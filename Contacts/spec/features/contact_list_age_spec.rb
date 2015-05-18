@@ -1,9 +1,9 @@
 describe "the contact list", :type => :feature do
   before(:each) do
     adam = Contact.create!(
-        first_name: "Adam",
-        last_name: "Surname",
-        date_of_birth:Date.today - 25.years)
+      first_name: "Adam",
+      last_name: "Surname",
+      date_of_birth:Date.today - 25.years)
     eve = Contact.create!(
       first_name: "Eve",
       last_name: "AnotherSurname",
@@ -22,18 +22,6 @@ describe "the contact list", :type => :feature do
 
   it "shows the correct amount of list items" do
     expect(page).to have_css("li", :count => @contacts.size)
-  end
-
-  it "Does not render the 'empty' message" do
-    expect(page).to have_no_content 'No contacts available'
-  end
-
-  it "has a correct title" do
-    expect(page).to have_title 'Contacts'
-  end
-
-  it "has a single top-level heading" do
-    expect(page).to have_xpath("//h1", :count => 1)
   end
 
   it "saves the page HTML for debugging" do
