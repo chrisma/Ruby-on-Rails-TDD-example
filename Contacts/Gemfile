@@ -32,10 +32,10 @@ gem 'sqlite3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# https://github.com/jnicklas/capybara
-gem 'capybara'
-
 group :development, :test do
+  # https://github.com/jnicklas/capybara
+  gem 'capybara'
+
   # RSpec testing framework, replacing Test::Unit
   gem 'rspec-rails', '~> 3.0'
 
