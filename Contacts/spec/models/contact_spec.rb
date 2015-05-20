@@ -7,7 +7,8 @@ RSpec.describe Contact, type: :model do
 
   context "writing to the database" do
     it "saves without errors" do
-      # Tests whether fields are required
+      # Tests whether other attributes not
+      # declared in 'before' are required
       expect {@contact.save}.to change{Contact.count}.from(0).to(1)
     end
   end
